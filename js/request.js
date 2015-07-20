@@ -1,7 +1,20 @@
-function getAsteroids() {
-  var earl= "http://asterank.com/api/asterank?query={query}&limit={limit}";
+$(function() { //doc ready
 
-  $.ajax(earl,{
-
+  $('#search').on(click, function(event){
+    event.preventDefault();
+    getAsteroids();
   });
-}
+
+
+
+  function getAsteroids() {
+
+    var earl= "http://asterank.com/api/asterank?query={query}&limit={limit}";
+
+    $.ajax(earl,{
+      data: '',
+
+
+    });
+  }
+)};
