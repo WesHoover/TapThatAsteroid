@@ -1,0 +1,23 @@
+body {
+  background-color: rgb(147, 235, 205);
+}
+
+#content-wrapper {
+  width: 0 auto;
+  position:absolute;
+  top: 123px;
+  z-index: 2;
+}
+
+h1 {
+  font-family: cursive;
+  text-align: center;
+}
+
+h2 {
+  font-family: sans-serif;
+  text-align: center;
+}
+#viz {
+  z-index: 0;
+}

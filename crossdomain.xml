@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+
+<!-- Read this: www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html -->
+<allow-access-from domain="asterank.com" />
+<allow-access-from domain="*.asterank.com" />
+<!--
+  If you host a crossdomain.xml file with allow-access-from domain="*"
+  and don’t understand all of the points described here, you probably
+  have a nasty security vulnerability. ~ simon willison
+-->
+
+</cross-domain-policy>
