@@ -6,23 +6,23 @@ $(function() { // doc ready shorthand
     getAsteroids();
   });
 
+  var query = '';
+  var limit = '';
 
   function getAsteroids(query, limit) { // Get data for asteroids
     alert('here we go!');
-    // var earl= 'http://asterank.com/api/asterank?query={"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}&limit=5';
 
     $.ajax({
-      url: 'http://www.asterank.com/api/asterank?query={"e":{"$lt":0.1},"i":{"$lt":4},"a":{"$lt":1.5}}&limit=1',
+      url: 'http://www.asterank.com/api/asterank?query={http://www.asterank.com/api/asterank?query={%22diameter%22:{%22$lt%22:1000}}&limit=1000}',
+      dataType: 'json',
       success: function(data) {
         console.log(data);
+        return data;
       },
       error: function(xhr,status,error) {
         console.log("An error occured: " + xhr.status + " " + xhr.statusText);
         console.log(error);
       },
-      // complete: function() {
-      //   alert(response[0].profit);
-      // }
     });
   }
 
@@ -36,19 +36,20 @@ $(function() { // doc ready shorthand
 
   var pack = d3.layout.pack()
       .sort(null)
-      .size([size, size])
+      // .size([size, size])
       .value(function(d) { return d.radius * d.radius; })
       .padding(5);
 
-  var svg = d3.select("#content-wrapper").append("svg")
-      .attr("width", size)
-      .attr("height", size);
+  var svg = d3.select("#content-wrapper").append("svg");
+      // .attr("width", size)
+      // .attr("height", size);
 
 // ===== Data input here - results of AJAX instead of csv ==========
-  d3.csv("exoplanets.csv", type, function(error, exoplanets) {
-    exoplanets.sort(function(a, b) {
-      return isFinite(a.distance) || isFinite(b.distance) ? a.distance - b.distance : 0;
-    });
+  // d3.json(csv, type, function(error, exoplanets) {
+  // getAsteroids() {
+  //   exoplanets.sort(function(a, b) {
+  //     return isFinite(a.distance) || isFinite(b.distance) ? a.distance - b.distance : 0;
+  //   });
 
     color.domain(d3.extent(exoplanets, function(d) { return d.radius; }));
 
