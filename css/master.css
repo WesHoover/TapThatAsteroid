@@ -2,11 +2,16 @@ body {
   background-color: rgb(147, 235, 205);
 }
 
+#page-wrapper {
+  width: auto;
+}
+
 #content-wrapper {
-  width: 0 auto;
+  margin: 0 auto;
   position:absolute;
   top: 123px;
   z-index: 2;
+  width: 50%;
 }
 
 h1 {
@@ -20,4 +25,8 @@ h2 {
 }
 #viz {
   z-index: 0;
+}
+
+input {
+  text-align: center;
 }
