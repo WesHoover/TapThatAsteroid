@@ -4,11 +4,9 @@
 // blue: #156b87, lightbrown: #876315, brown: #543510, red: #872815
 // max: 24.5, min: 0.003
 // 0.0-4.0: blue; 4.0-8.0: lightbrown; 8.0-18.0: brown; 18.0-23.5: red
-var r = 960
-  , format = d3.format(".2f");
+var r = 960, format = d3.format(".2f");
 // http://en.wikipedia.org/wiki/Jupiter_mass
-var earthToJupiter = 317.83
-  , jupiterToEarth = 0.00315;
+var earthToJupiter = 317.83, jupiterToEarth = 0.00315;
 var ourPlanets = [
   {name:'mercury', radius:'0.3829'},
   {name:'venus', radius:'0.9499'},
@@ -215,6 +213,8 @@ vis.selectAll('text.ourPlanets')
       }
     });
 
+
+// Replace exoplanets.json with output of getAsteroids function
 d3.json("exoplanets.json", function(json) {
   var node = vis.selectAll("g.node")
       .data(bubble.nodes(classes(json))
@@ -225,7 +225,7 @@ d3.json("exoplanets.json", function(json) {
   node.append("title")
     .text(function(d) { return d.className + "\n * Earth Radius: " + d.radius + "\n AU (distance to star): " + d.distance; });
   node.append("circle")
-    .attr("r", function(d) { return Math.sqrt(d.r * d.r * .8); })
+    .attr("r", function(d) { return Math.sqrt(d.r * d.r * 0.8); })
     .style("fill", function(d) { return cFill(d); })
     .on("mouseover", function(d) {
       d3.select("#planet").text(d.className);
