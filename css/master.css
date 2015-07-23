@@ -1,26 +1,33 @@
 body {
-  background-color: rgb(147, 235, 205);
+  background-color: #191b25;
+  margin: 0;
 }
 
 #page-wrapper {
-  width: auto;
-}
+  width: 100%;
+  margin: 0, 0, 8px, 0;
+ }
 
 #content-wrapper {
   margin: 0 auto;
   /*position:absolute;*/
-  top: 123px;
+  /*top: 123px;*/
   z-index: 2;
   width: 50%;
 }
 
 h1 {
-  font-family: cursive;
+  font-family: 'Exo 2', Arial, sans-serif;
+  font-weight: 200;
+  font-size: 4em;
+  color: rgb(219, 219, 219);
   text-align: center;
 }
 
 h2 {
-  font-family: sans-serif;
+  font-family: 'Exo 2';
+  font-weight: 200;
+  color: rgb(219, 219, 219);
   text-align: center;
 }
 #viz {
@@ -29,4 +36,8 @@ h2 {
 
 input {
   text-align: center;
+}
+
+svg {
+  margin: 0 25%;
 }
