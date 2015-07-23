@@ -1,93 +1,35 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8">
     <title>Tap That Asteroid</title>
+
+    <!-- FONTS AND CSS -->
     <!-- <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400|Work+Sans:200,400|Exo+2:600,400,200|Raleway:400,200' rel='stylesheet' type='text/css'> -->
     <link href='http://fonts.googleapis.com/css?family=Exo+2:400,200,600,600italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./css/master.css" media="screen" title="no title" charset="utf-8">
 
+    <!-- SOURCE LIBRARIES AND SCRIPT FILES -->
     <script src="https://code.jquery.com/jquery-1.11.3.min.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <script src="./js/request.js" charset="utf-8"></script>
 
   </head>
-
   <body>
     <div id="page-wrapper">
       <div id="content-wrapper">
         <h1>TAP THAT ASTEROID</h1>
         <h2>a small tool to visualize asteroid data</h2>
+        <p>Show:&nbsp</p>
         <input id="set-10" type="button" value="10" />
         <input id="set-100" type="button" value="100" />
         <input id="set-500" type="button" value="500" />
         <input id="set-1000" type="button" value="1000" />
-        <input id="set-10000" type="button" value="10000" />
+        <!-- <input id="set-10000" type="button" value="10000" /> -->
       </div>
-      <!-- SVG Viz Goes Here -->
     </div>
-
-    <script type="text/javascript">
-      //
-      // function getAsteroids() { // Get data for asteroids, on success create viz SVG
-      //   alert('here we go!');
-      //
-      //   $.ajax({
-      //     url: 'http://www.asterank.com/api/asterank?query={"diameter":{"$lt":1000}}&limit=1',
-      //     dataType: 'json',
-      //     success: function(data) {
-      //       createD3(data);
-      //     },
-      //     error: function(xhr, status, error) {
-      //       console.log("An error occured: " + xhr.status + " " + xhr.statusText);
-      //       console.log(error);
-      //     },
-      //   });
-      // }
-      //
-      // function createD3() {
-        // var url = 'http://www.asterank.com/api/asterank?query={"diameter":{"$lt":1000}}&limit=1';
-        // var width = 900,height = 900;
-        //
-        // var canvas = d3.select("body").append("svg")
-        //   .attr("width", width)
-        //   .attr("height", height)
-        //   .append("g")
-        //     .attr("transform", "translate(50,50)");
-        //
-        // var pack = d3.layout.pack()
-        //   .sort(null)
-        //   .size([width, height - 50])
-        //   .padding(10);
-        //
-        // // Passing Data to the pack, create end nodes
-        // d3.json(url, function(data) {
-        //   var nodes = pack.nodes(data);
-        //   console.log(nodes);
-        // });
-        //
-        // // d3.json(url, function(data){
-
-        //   var node = viz.selectAll(".node")
-        //     .data(nodes)
-        //     .enter()
-        //     .append("g")
-        //       .attr("class", "node")
-        //       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-        //
-        //     node.append("circle")
-        //         .attr("r", function (d) { return d.diameter; })
-        //         .attr("fill", "grey")
-        //         .attr("opacity", 0.5)
-        //         .attr("stroke", "black")
-        //         .attr("stroke-width", "2");
-        // });
-      // } // end createD3
-
-    </script>
-
+    <div class= "svg-container">
+    </div>
   </body>
-
 </html>

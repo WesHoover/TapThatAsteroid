@@ -8,6 +8,7 @@ $(function() { // doc ready shorthand
   // ===== Show 10 Asteroids ===== //
   $('#set-10').click(function(event) {
     event.preventDefault();
+    removeSVG();
     limit = 10;
     createViz(limit);
     // alert('clicked 10');
@@ -16,6 +17,7 @@ $(function() { // doc ready shorthand
   // ===== Show 100 Asteroids ===== //
   $('#set-100').click(function(event) { // set limit to 100 when set-100 button clicked
     event.preventDefault();
+    removeSVG();
     limit = 100;
     createViz(limit);
     // alert('clicked 100');
@@ -24,6 +26,7 @@ $(function() { // doc ready shorthand
   // ===== Show 500 Asteroids ===== //
   $('#set-500').click(function(event) {
     event.preventDefault();
+    removeSVG();
     limit = 500;
     createViz(limit);
     // alert('clicked 500');
@@ -32,6 +35,7 @@ $(function() { // doc ready shorthand
   // ===== Show 1000 Asteroids ===== //
   $('#set-1000').click(function(event) {
     event.preventDefault();
+    removeSVG();
     limit = 1000;
     createViz(limit);
     // alert('clicked 1000');
@@ -40,24 +44,30 @@ $(function() { // doc ready shorthand
   // ===== Show 10000 Asteroids ===== //
   $('#set-10000').click(function(event) {
     event.preventDefault();
+    removeSVG();
     limit = 10000;
     createViz(limit);
     // alert('clicked 10000');
   });
 
+  function removeSVG() {
+    $(".svg-container").empty();
+  }
+
   function createViz(limit) {
     var url = 'http://www.asterank.com/api/asterank?query={"diameter":{"$lt":1000}}&limit=' + limit ;
     console.log(url);
-    var width = 800,height = 800;
 
-    var canvas = d3.select("body").append("svg")
+    var width = 600,height = 550;
+
+    var canvas = d3.select(".svg-container").append("svg")
       .attr("width", width)
       .attr("height", height)
       .append("g")
         .attr("transform", "translate(20,50)");
 
     var pack = d3.layout.pack()
-      // .sort(null)
+      .sort(null)
       .size([width, height - 50])
       .value(function(d) {
         console.log(d);
@@ -69,7 +79,7 @@ $(function() { // doc ready shorthand
     d3.json(url, function(data){
       // console.log(data);
       // console.log(error);
-     var nodes = pack.nodes({children: data}).slice(1);
+     var nodes = pack.nodes({children: data}).slice(1); // load all child nodes and remove first one; first node is root
     //  console.log(nodes);
      var node = canvas.selectAll(".node")
        .data(nodes)

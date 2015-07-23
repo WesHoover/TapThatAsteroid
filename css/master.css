@@ -22,6 +22,7 @@ h1 {
   font-size: 4em;
   color: rgb(219, 219, 219);
   text-align: center;
+  margin-top: 1%;
 }
 
 h2 {
@@ -30,12 +31,17 @@ h2 {
   color: rgb(219, 219, 219);
   text-align: center;
 }
-#viz {
-  z-index: 0;
+
+p {
+  font-family: 'Exo 2';
+  font-weight: 200;
+  color: rgb(219, 219, 219);
+  text-align: right;
+  margin: 0 0 2px 0;
 }
 
 input {
-  text-align: center;
+  float: right;
 }
 
 svg {
