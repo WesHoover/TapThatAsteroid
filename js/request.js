@@ -1,7 +1,7 @@
 $(function() { // doc ready shorthand
 // Load Viz button listener
 
-  var limit = 10;
+  // var limit = 10;
   createViz(limit);
   // var query = ''; // select which piece of data to query and display
 
@@ -67,7 +67,7 @@ $(function() { // doc ready shorthand
         .attr("transform", "translate(20,50)");
 
     var pack = d3.layout.pack()
-      .sort(null)
+      .sort(null) // prevents d3's default sort mode
       .size([width, height - 50])
       .value(function(d) {
         console.log(d);
