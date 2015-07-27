@@ -1,8 +1,8 @@
 $(function() { // doc ready shorthand
 // Load Viz button listener
 
-  // var limit = 10;
-  createViz(limit);
+  // var limit = 10; // buh-bye global variable
+  createViz();
   // var query = ''; // select which piece of data to query and display
 
   // ===== Show 10 Asteroids ===== //
@@ -41,7 +41,7 @@ $(function() { // doc ready shorthand
     // alert('clicked 1000');
   });
 
-  // ===== Show 10000 Asteroids ===== //
+  // ===== Show 10000 Asteroids ===== // NOT WORKING, might be that fewer than 10,000 have the 'diameter' property, check for est_diameter
   $('#set-10000').click(function(event) {
     event.preventDefault();
     removeSVG();
@@ -55,6 +55,9 @@ $(function() { // doc ready shorthand
   }
 
   function createViz(limit) {
+    if (limit === undefined) {
+      limit = 10;
+    }
     var url = 'http://www.asterank.com/api/asterank?query={"diameter":{"$lt":1000}}&limit=' + limit ;
     console.log(url);
 
